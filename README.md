@@ -2,7 +2,7 @@
 
 ## Current Version
 
-V0.1
+V0.1 Super Beta
 
 ## Synopsis
 
