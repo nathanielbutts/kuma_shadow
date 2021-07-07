@@ -8,6 +8,8 @@ V0.1 Super Beta
 
 This is for a hardware/software project to create a player for shadowing content.  The initial intent is for Japanese text (for personal reasons), but the intent will be to have this be able to be used for any language, or really any purpose involving audio files.
 
+For copyright reasons, the audio files are not included in this repo.
+
 ## Target Platforms
 - Raspberry Pi Zero
 - Microcontrollers
@@ -53,3 +55,4 @@ Language shadowing is a concept for learning a secondary language .  In it, you 
 
 **Microcontroller**
 
+熊
