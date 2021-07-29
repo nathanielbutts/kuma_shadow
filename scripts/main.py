@@ -89,17 +89,17 @@ def play_track(self): # Play file for shadowing
 
 def next_track(self):
     global file_name
-    track_num = update_history()
+    track_num = int(update_history())
     with open(file_history, 'w') as f: 
-        int(track_num) +=1
+        track_num +=1
         f.write(str(track_num))
     file_name = find_filename()
 
 def prev_track(self):
     global file_name
-    track_num = update_history()
+    track_num = int(update_history())
     with open(file_history, 'w') as f: 
-        int(track_num) +=-1
+        track_num +=-1
         f.write(str(track_num))
     file_name = find_filename()
 
