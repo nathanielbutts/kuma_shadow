@@ -75,72 +75,141 @@
     C: Eh? Okonomi what?
 11-01:
   japanese:
-    A: 
-    B: 
+    A: あー、うまかった。
+    B: 本当、おいしかったね。
   english:
-    A: 
-    B: 
+    A: Wow, that was good.
+    B: Yes, it really was delicious.
 11-02:
   japanese:
-    A: 
-    B: 
+    A: あー、おんかいっぱい。
+    B: 私も。
   english:
-    A: 
-    B: 
+    A: Ah, I'm stuffed.
+    B: Me too.
 11-03:
   japanese:
-    A: 
-    B: 
+    A: ごちそうさまでした。とってもおいしかったです。
+    B: いいえ、どういたしまして。
   english:
-    A: 
-    B: 
+    A: Thank you for the meal.  It was really delicious.
+    B: Really, it was no trouble at all.
 11-04:
   japanese:
-    A: 
-    B: 
+    A: デザート食べますか？
+    B: いいですね。
   english:
-    A: 
-    B: 
+    A: Would you care for some dessert?
+    B: That would be wonderful.
 11-05:
   japanese:
-    A: 
-    B: 
+    A: たくさん食べてくださいね。
+    B: はい、いただきまーす。
   english:
-    A: 
-    B: 
+    A: Please eat as much as you want.
+    B: Thank you very much.
 11-06:
   japanese:
-    A: 
-    B: 
+    A: この店、サービスもいいし、料理もおいしいし。。。
+    B: そうだね。また来たいね。
   english:
-    A: 
-    B: 
+    A: The service and food at this restaurant are very good.
+    B: I couldn't agree more.  Let's come here again.
 11-07:
   japanese:
-    A: 
-    B: 
+    A: この店、どうだった？
+    B: う～ん、料理はいいけど、サービスがちょっとね。。。
   english:
-    A: 
-    B: 
+    A: How was the restaurant?
+    B: The food was good, but the service left a bit to be desired.
 11-08:
   japanese:
-    A: 
-    B: 
+    A: これもおいしいよ。あっ、それからこれも。。。
+    B: 本当だ。おいしそう！
   english:
-    A: 
-    B: 
+    A: This is delicious as well.  Ah, this is very good too...
+    B: So it is.  It looks really tasty!
 11-09:
   japanese:
-    A: 
-    B: 
+    A: これ、おいしいよ。ちょっと食べてみる？
+    B: うん、ありがとう。
   english:
-    A: 
-    B: 
+    A: This is very good.  Would you like to try some?
+    B: Yes please.  Thank you!
 11-10:
+  japanese:
+    A: 豚肉はちょっと。。。
+    B: あ、そうなんだ。
+  english:
+    A: I'm not too keen on pork...
+    B: Ah, I see.
+12-01:
   japanese:
     A: 
     B: 
   english:
     A: 
     B: 
-
+12-02:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-03:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-04:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-05:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-06:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-07:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-08:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-09:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 
+12-10:
+  japanese:
+    A: 
+    B: 
+  english:
+    A: 
+    B: 

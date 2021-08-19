@@ -2,19 +2,17 @@ from logging import shutdown
 import sys, os, time, csv, vlc, shutdown_script
 import RPi.GPIO as GPIO
 from mutagen.mp3 import MP3
-import epd2in13_V2 as epd
-from PIL import Image,ImageDraw,ImageFont
 
 #########################
 # Directories and files #
 #########################
 
-dir_audio = 'audio/' # directory with all audio.  no sub dirs.
-dir_fonts = 'pics/' # directory with fonts. no sub dirs.
-file_history = 'files/history.txt' # keep track of current track
-file_toc = 'files/file_toc.txt' # TOC of audio files
-file_script = 'files/script.yaml'
-click = 'files/click.wav'
+dir_audio = '../audio/' # directory with all audio.  no sub dirs.
+dir_fonts = '../pics/' # directory with fonts. no sub dirs.
+file_history = '../files/history.txt' # keep track of current track
+file_toc = '../files/file_toc.txt' # TOC of audio files
+file_script = '../files/script.yaml'
+click = '../files/click.wav'
 
 #############
 # Pin Setup #
@@ -38,7 +36,7 @@ def clear(): # Setup function to clear terminal screens
 def exit(): # Setup function to elegantly exit
     sys.exit("Exiting")
 
-def create_toc(self): # Create the TOC off of the file structure
+def create_toc(file_toc): # Create the TOC off of the file structure
     global toc
     toc = [] #empty list for toc
     with open(file_toc, 'r') as f:
@@ -48,15 +46,15 @@ def create_toc(self): # Create the TOC off of the file structure
         f.close
     return toc
 
-def find_filename(self): # Find file name in the TOC to go with track number, used for media play
+def find_filename(file_history): # Find file name in the TOC to go with track number, used for media play
     global play_file
     with open(file_history, 'r') as f:
-                play_file = str(f.read())
-                f.close
+        play_file = str(f.read())
+        f.close
     play_file = toc[int(track_num)][1]
     return play_file
 
-def update_history(self): #checks if history is available; if so updates history based on latest; if not, starts from zero on file_toc.txt
+def update_history(file_history): #checks if history is available; if so updates history based on latest; if not, starts from zero on file_toc.txt
     global track_num
     if os.path.exists(file_history): #check if history.txt exists, if it does, pull latest item
         with open(file_history, 'r') as f:
@@ -68,8 +66,16 @@ def update_history(self): #checks if history is available; if so updates history
             f.close
     return track_num
 
-def play_track(self): # Play file for shadowing
-    play_file = find_filename()
+def find_file():
+    global play_file
+    play_file = toc[int(track_num)][1]
+    return play_file
+
+def play_track(): # Play file for shadowing
+    play_file = find_file()
+#    play_file = toc[int(track_num)][1]
+#    play_file = find_filename(file_history)
+    print(play_file)
     # Play the click before each track
     media = vlc.MediaPlayer(click) #sets VLC to play the file at it's path
     play_time = 0.5 #sets variable to time length of file
@@ -79,40 +85,44 @@ def play_track(self): # Play file for shadowing
     time.sleep(0.5) # slight pause after playback to keep next track from interfering
 
     # Now play shadowing track
-    media = vlc.MediaPlayer(play_file) #sets VLC to play the file at it's path
-    audio = MP3(play_file) #using MP3 from mutagen to find length of audio file
+    media = vlc.MediaPlayer("../audio/"+play_file) #sets VLC to play the file at it's path
+    audio = MP3("../audio/"+play_file) #using MP3 from mutagen to find length of audio file
     play_time = audio.info.length #sets variable to time length of file
     media.play() #play the file in VLC
     time.sleep(play_time) #sets sleep value to the length of the track.  Used with .stop() below
     media.stop() #declared to definitively stop playback.  If not set it will shutdown vlc the instant it is started providing no output
     time.sleep(0.5) # slight pause after playback to keep next track from interfering
 
-def next_track(self):
-    global file_name
-    track_num = int(update_history())
+def next_track():
+    global track_num
+    track_num = int(update_history(file_history))
     with open(file_history, 'w') as f: 
         track_num +=1
         f.write(str(track_num))
-    file_name = find_filename()
+    f.close()
+    print(find_file())
+    return track_num
 
-def prev_track(self):
-    global file_name
-    track_num = int(update_history())
+def prev_track():
+    global track_num
+    track_num = int(update_history(file_history))
     with open(file_history, 'w') as f: 
         track_num +=-1
         f.write(str(track_num))
-    file_name = find_filename()
+    f.close()
+    print(find_file())
+    return track_num
 
-def splash_screen(logo, top, bottom):
-    # Display the splash screen
-    epd.init(epd.FULL_UPDATE) #Performs full update to prevent ghosting/burn-in
-    epd.Clear(0xFF) #Clears the screen
-    logo_text = '熊'
-    side_text_top = 'KUMA'
-    side_text_bot = 'SHADOW'
-    pass
+# def splash_screen(logo, top, bottom):
+#     # Display the splash screen
+#     epd.init(epd.FULL_UPDATE) #Performs full update to prevent ghosting/burn-in
+#     epd.Clear(0xFF) #Clears the screen
+#     logo_text = '熊'
+#     side_text_top = 'KUMA'
+#     side_text_bot = 'SHADOW'
+#     pass
 
-def write_screen(self):
+def write_screen():
     pass
 
 def find_trackpath(file_history, dir_audio):
@@ -120,7 +130,7 @@ def find_trackpath(file_history, dir_audio):
     track_path = str(dir_audio+track)
     return track_path
 
-def shut_down(self): # Shutdown the machine elegantly
+def shut_down(): # Shutdown the machine elegantly
     update_history()
     shutdown_script.shutdown(pin_shutdown)
 
@@ -131,8 +141,9 @@ def shut_down(self): # Shutdown the machine elegantly
 # Create TOC every startup to capture any changes to files
 try:
     toc = create_toc(file_toc)
-    update_history(file_history,toc) # also update history file
+    update_history(file_history) # also update history file
     print('Table of Contents created')
+    find_file()
 except ValueError:
     print('Error in creating TOC')
 
@@ -140,50 +151,39 @@ except ValueError:
 GPIO.setwarnings(False) #Ignore warnings
 GPIO.setmode(GPIO.BCM) #set the gpios to read as on the pi
 GPIO.cleanup(channel_list) #sets them all to 0 for a clean start
-GPIO.setup(channel_list, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  #sets all the channels as inputs and pulls them down on startup.  Otherwise they always read high.
+GPIO.setup(channel_list, GPIO.IN, pull_up_down=GPIO.PUD_UP)  #sets all the channels as inputs and pulls them down on startup.  Otherwise they always read high.
 
+GPIO.setup(channel_list, GPIO.IN, pull_up_down=GPIO.PUD_UP)  #sets all the channels as inputs and pulls them down on startup.  Otherwise they always read high.
+GPIO.add_event_detect(pin_play,GPIO.FALLING,callback=play_track) # Setup event on pin 10 FALLING edge
+GPIO.add_event_detect(pin_next,GPIO.FALLING,callback=next_track) # Setup event on pin 10 FALLING edge
+GPIO.add_event_detect(pin_prev,GPIO.FALLING,callback=prev_track) # Setup event on pin 10 FALLING edge
+GPIO.add_event_detect(pin_shutdown,GPIO.FALLING,callback=shut_down) # Setup event on pin 10 FALLING edge
 
 
 while True:
     #Set up what each pin will do
-    GPIO.add_event_detect(pin_play,GPIO.RISING,callback=play_track) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(pin_next,GPIO.RISING,callback=next_track) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(pin_prev,GPIO.RISING,callback=prev_track) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(pin_shutdown,GPIO.RISING,callback=shut_down) # Setup event on pin 10 rising edge
-    #GPIO.add_event_detect(pin_volup,GPIO.RISING,callback=vol_up) # Setup event on pin 10 rising edge
-    #GPIO.add_event_detect(pin_voldn,GPIO.RISING,callback=vol_down) # Setup event on pin 10 rising edge
+    
+    time.sleep(0.01)
+    #GPIO.add_event_detect(pin_volup,GPIO.FALLING,callback=vol_up) # Setup event on pin 10 FALLING edge
+    #GPIO.add_event_detect(pin_voldn,GPIO.FALLING,callback=vol_down) # Setup event on pin 10 FALLING edge
 
     #Also setup for keyboard inputs
     # Uncomment if needed
-    # if __name__ == "__main__":
-    #     while True:
-    #         message = input('(P)lay (N)ext (L)ast (Q)\n')
-    #         if message == 'p':
-    #             play()
-    #         elif message == 'n' :
-    #             next()
-    #         elif message == 'l' :
-    #             prev()
-    #         elif message == 'q' :
-    #             shadowing.exit()
-
-    # GPIO.cleanup() # Clean up
-
-
-
-# Drawing on the image
-font10 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 10)
-font15 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
-font20 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
-font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-font36 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 36)
-font72 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 72)
-    
-font72 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 72)
-    
-image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame  $
-draw = ImageDraw.Draw(image)
-    
-#Draw text
-    
+    if __name__ == "__main__":
+        find_file()
+        message = input('(P)lay (N)ext (L)ast (Q)\n')
+        while True:
+            message = input()
+            if message == 'p':
+                find_file()
+                play_track()
+            elif message == 'n' :
+                next_track()
+                find_file()
+            elif message == 'l' :
+                prev_track()
+                find_file()
+            elif message == 'q' :
+                GPIO.cleanup() # Clean up
+                exit()
 
