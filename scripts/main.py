@@ -1,5 +1,5 @@
 from logging import shutdown
-import sys, os, time, csv, vlc, shutdown_script
+import sys, os, time, csv, vlc, shutdown_script, yaml
 import RPi.GPIO as GPIO
 from mutagen.mp3 import MP3
 
@@ -54,6 +54,22 @@ def find_filename(file_history): # Find file name in the TOC to go with track nu
     play_file = toc[int(track_num)][1]
     return play_file
 
+def read_script():
+    clear()
+
+    name = play_file.replace('.mp3', '')
+
+    with open(file_script, 'r') as file:
+        script = yaml.safe_load(file)
+        for each in script[name]['japanese']:
+            print(script[name]['japanese'][each])
+        print('\n')
+        for each in script[name]['english']:
+            print(script[name]['english'][each])
+#        print(script[name]['japanese'])
+#        print(script[name]['english'])
+    file.close
+
 def update_history(file_history): #checks if history is available; if so updates history based on latest; if not, starts from zero on file_toc.txt
     global track_num
     if os.path.exists(file_history): #check if history.txt exists, if it does, pull latest item
@@ -73,9 +89,10 @@ def find_file():
 
 def play_track(): # Play file for shadowing
     play_file = find_file()
+    read_script()
 #    play_file = toc[int(track_num)][1]
 #    play_file = find_filename(file_history)
-    print(play_file)
+#    print(play_file)
     # Play the click before each track
     media = vlc.MediaPlayer(click) #sets VLC to play the file at it's path
     play_time = 0.5 #sets variable to time length of file
@@ -102,6 +119,7 @@ def next_track():
     f.close()
     print(find_file())
     return track_num
+    play_track()
 
 def prev_track():
     global track_num
@@ -112,6 +130,7 @@ def prev_track():
     f.close()
     print(find_file())
     return track_num
+    play_track()
 
 # def splash_screen(logo, top, bottom):
 #     # Display the splash screen
@@ -176,13 +195,19 @@ while True:
             message = input()
             if message == 'p':
                 find_file()
+#                clear()
+#                read_script()
                 play_track()
+                print('\n')
+#                message = input('(P)lay (N)ext (L)ast (Q)\n')
             elif message == 'n' :
                 next_track()
                 find_file()
+                play_track()
             elif message == 'l' :
                 prev_track()
                 find_file()
+                play_track()
             elif message == 'q' :
                 GPIO.cleanup() # Clean up
                 exit()
