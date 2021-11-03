@@ -145,71 +145,211 @@
     B: Ah, I see.
 12-01:
   japanese:
-    A: 
-    B: 
+    A: どこ行くの？
+    B: ちょっとそこまで。
   english:
-    A: 
-    B: 
+    A: Where are you going?
+    B: Nowhere in particular.
 12-02:
   japanese:
-    A: 
-    B: 
+    A: どこ行くの？
+    B: ちょっと、コンビニにお弁当を買いに。
   english:
-    A: 
-    B: 
+    A: Where are you going?
+    B: I'm just going to the convenience store to buy a bento.
 12-03:
   japanese:
-    A: 
-    B: 
+    A: 一緒にお昼食べない？
+    B: うん、いいね。何食べたい？
   english:
-    A: 
-    B: 
+    A: Do you want to eat lunch together?
+    B: Sounds great.  What do you want to eat?
 12-04:
   japanese:
-    A: 
-    B: 
+    A: 一緒にお昼食べない？
+    B: あ、ごめん。もう食べちゃった。
   english:
-    A: 
-    B: 
+    A: Do you want to eat lunch together?
+    B: Ah, sorry.  I've already eaten.
 12-05:
   japanese:
-    A: 
-    B: 
+    A: ねー、一緒にお昼食べない？
+    B: あ、ちょっと待って。食べる前に友達に電話したいんだ。
   english:
-    A: 
-    B: 
+    A: Do you want to eat lunch together?
+    B: Ah, hold on.  Before eating I want to call a friend.
 12-06:
   japanese:
-    A: 
-    B: 
+    A: ねー、何か書くものある。
+    B: え、ペン？それとも紙？
   english:
-    A: 
-    B: 
+    A: Hey, do you have something to write with?
+    B: What do you mean?  A pen?  Or do you mean paper?
 12-07:
   japanese:
-    A: 
-    B: 
+    A: あ〜、飲みすぎた。ちょっと酔っぱらったよ。
+    B: う〜ん。眠くなってきた。
   english:
-    A: 
-    B: 
+    A: Ah, I drank too much.  I'm a bit light headed.
+    B: Yeah, I'm feeling sleepy.
 12-08:
   japanese:
-    A: 
-    B: 
+    A: 山田さん、おいくつですか？
+    B: えっ！ひみつです。聞かないで。
   english:
-    A: 
-    B: 
+    A: Yamada-san, how old are you?
+    B: Eh, That's a secret.  Don't ask about that sort of thing.
 12-09:
   japanese:
-    A: 
-    B: 
+    A: この漢字の読みかった教えて。
+    B: う〜ん。わかんないなー。他の人に聞いて。
   english:
-    A: 
-    B: 
+    A: Can you tell me how to read this kanji?
+    B: Hmm, I don't know.  Please ask somebody else.
 12-10:
   japanese:
-    A: 
-    B: 
+    A: はい、もしもし。
+    B: 危ないよ。運転しながらは。
   english:
-    A: 
-    B: 
+    A: Hello.
+    B: It's dangerous to do that while you're driving, you know. 
+13-01:
+  japanese:
+    A: 昨日、暑かったね。
+    B: 本当。暑くて暑くて。。。寝られなかったよ。
+  english:
+    A: It was a very warm day yesterday, don't you think?
+    B: It really was.  It was so hot I wasn't able to sleep at all.
+13-02:
+  japanese:
+    A: 田中さんの彼女ってどの人ですか？
+    B: ほら、あそこで電話してる人。
+  english:
+    A: Which one is Tanaka-san's girlfriend?
+    B: Look, it's the person on the phone over there.
+13-03:
+  japanese:
+    A: 今夜飲みに行きませんか？
+    B: いいですね。行きましょう。
+  english:
+    A: Do you want to go out for a drink tonight?
+    B: Sounds good.  Let's go.
+13-04:
+  japanese:
+    A: ねー、パンを食べるの[を]って、パソコンでどう書くんですか？
+    B: WOですよ。
+  english:
+    A: Hey, on a computer how do you enter the を in the sentence "pan wo taberu"?
+    B: By typing the letters W and O.
+13-05:
+  japanese:
+    A: あれ？あんまり食べないねー。
+    B: う〜ん。今日はおなかの調子があまりよくないんです。
+  english:
+    A: Huh?  You don't eat much, do you?
+    B: Yeah, my stomach is a little bit upset today.
+13-06:
+  japanese:
+    A: あ〜、新しい言葉がたくさんある。。。
+    B: 本当、頭が変になりそう。。。
+  english:
+    A: there are a lot of new words...
+    B: You're not kidding.  My head is starting to hurt.
+13-07:
+  japanese:
+    A: ずいぶん涼しくなりましたね。
+    B: そうですね。
+  english:
+    A: It's cooled down quite a bit.
+    B: It has, hasn't it?
+13-08:
+  japanese:
+    A: あれ？ここ携帯使えないんだ。
+    B: うん。地下だからね。
+  english:
+    A: What!  I can't use my mobile phone here.
+    B: Yeah, that's cause we're underground.
+13-09:
+  japanese:
+    A: 日本に来てどれぐらいになりますか？
+    B: 2年半になります。
+  english:
+    A: How long has it been since you came to Japan?
+    B: It'll soon be two and a half years.
+13-10:
+  japanese:
+    A: 山田さんはどちらにお住まいですか？
+    B: この近所に住んでいます。すぐそこです。
+  english:
+    A: Where do you live, Yamada-san?
+    B: I live in this neighborhood.  It's not far from here.
+14-01:
+  japanese:
+    A: 日本語すごいね。上手になったね。
+    B: いやー、だんだん難しくなってきました。
+  english:
+    A: Your Japanese has really improved.
+    B: Not really.  it's been getting harder lately.
+14-02:
+  japanese:
+    A: 日本語の辞書が欲しいんだ。
+    B: へー、先生に聞いてから買いに行ったら？
+  english:
+    A: I really want a Japanese dictionary.
+    B: Really?  Why don't you go and buy one after you talk to sensei?
+14-03:
+  japanese:
+    A: まだ寒い？
+    B: うん、このストーブ、ついてますか？
+  english:
+    A: Are you still cold?
+    B: Yes, is this heater on?
+14-04:
+  japanese:
+    A: このへんは春になるとさくらがきれいでしょうね。
+    B: ええ、みごとですよ。
+  english:
+    A: In spring it's very beautiful around here when the cherry blossoms bloom.
+    B: Yes, it's magnificent.
+14-05:
+  japanese:
+    A: 大阪に行ったら、知らない日本語をたくさん聞きました。
+    B: あー、それは方言ですよ。場所によって言葉がちがうんです。
+  english:
+    A: When I went to Osaka I heard a lot of Japanese that I'd never heard before.
+    B: Ah, that's a dialect.  The language is a bit different depending on where you are.
+14-06:
+  japanese:
+    A: わー、この携帯、テルビが見られるんだ。
+    B: うん、そうなんだ。あんまり使わないけどね。
+  english:
+    A: Wow, you can watch TV on this mobile phone.
+    B: Yeah...I don't think you'll use it much though.
+14-07:
+  japanese:
+    A: あまり飲みませんね。
+    B: ええ。私、お酒、弱いんです。
+  english:
+    A: You don't drink much, do you?
+    B: Yeah, I'm not a very strong drinker.
+14-08:
+  japanese:
+    A: ここは勉強するところですから、寝る人は別の部屋へ行ってください。
+    B: わかりました。
+  english:
+    A: This is a place to study so if you want to sleep please go to a different room.
+    B: I understand.
+14-09:
+  japanese:
+    A: あれ？メガネ。。。どこいったかな〜。
+    B: ん？メガネ？どっかて見たよ。
+  english:
+    A: What?  Where did my glasses go?
+    B: Glasses?  I saw them somewhere.
+14-10:
+  japanese:
+    A: あれ？もう食べないの？
+    B: うん。さっき軽く食べちゃったんだ。
+  english:
+    A: Huh?  You're already finished eating?
+    B: Yeah, I ate a light meal before.
